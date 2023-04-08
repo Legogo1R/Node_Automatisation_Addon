@@ -1,6 +1,7 @@
 import bpy
-import utils
+
 from bpy.types import Operator
+from .utils import create_rlayer_node
 
 class NODE_OT_simple_node_setup(Operator):
     "Creates render layer and output nodes"
@@ -13,6 +14,10 @@ class NODE_OT_simple_node_setup(Operator):
         return context.area.type == 'NODE_EDITOR'
             
     def execute(self, context):
-        utils.create_rlayer_node('Huy', context.scene)
+        create_rlayer_node(context.view_layer.name, context.scene)
 
         return {'FINISHED'}
+
+classes = [
+    NODE_OT_simple_node_setup
+]

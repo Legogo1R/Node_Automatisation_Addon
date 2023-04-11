@@ -15,8 +15,6 @@ main_modules = [
     operators
 ]
 
-print(__name__)
-
 def cleanse_modules():
     """search for your plugin modules in blender python sys.modules and remove them"""
 

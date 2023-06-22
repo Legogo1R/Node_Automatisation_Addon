@@ -1,6 +1,7 @@
 import bpy
 
 from bpy.props import (
+		IntProperty,
 		StringProperty,
 		EnumProperty,
         BoolProperty,
@@ -43,11 +44,31 @@ class NA_Addon_Props(bpy.types.PropertyGroup):
 		items=[
 		('all_scenes', "All Scenes", ""),
 		('selected_scenes', "Selected Scenes", ""),
+		('current_scene', "Current Scene", ""),
 		]		
 	)
 
+	scene_list_index : IntProperty(
+		name="Index of scene_list",
+		default=0
+	)
+
+	viewlayer_list_index : IntProperty(
+		name="Index of viewlayer_list",
+		default=0
+	)
+
+
+class ListItem(bpy.types.PropertyGroup):
+
+	name : StringProperty(
+        name='Name',
+	 	default=''
+		)
+	
 
 # Classes to register
 classes = [
-    NA_Addon_Props
+    NA_Addon_Props,
+    ListItem
 ]
